@@ -16,7 +16,7 @@
 
 body{
   /* background-color: black; */
-  background-image: url("/Gallery-project/milkshake-two-st-valentine-concept.jpg");
+  background-image: url("Gallery-project\milkshake-two-st-valentine-concept.jpg");
   background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;  
@@ -218,7 +218,7 @@ figure::after{
 /* Inside Page */
 .card-inside {
   background: #fff5f7;
-  background-image: url("/Gallery-project/roses.jpg");;
+  background-image: url("Gallery-project\roses.jpg");;
   background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;  
@@ -266,7 +266,7 @@ figure::after{
 /* Modal Box */
 .yes-modal-content {
   background: white;
-  background-image: url("/Gallery-project/Pink2.jpg");;
+  background-image: url("Gallery-project\Pink2.jpg");;
   background-size: 100% 100%; 
   background-position: center;
   background-repeat: no-repeat;  
