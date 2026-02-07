@@ -1,0 +1,353 @@
+*,
+*::before,
+
+*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.drag{
+  height: 990px;
+  width: 1920px;
+  position: relative;
+}
+
+
+body{
+  /* background-color: black; */
+  background-image: url("../../Gallery\ project/milkshake-two-st-valentine-concept.jpg");
+  background-size: 100% 100%; 
+  background-position: center;
+  background-repeat: no-repeat;  
+  height: 100vh;
+  margin:0;
+  display: grid;
+  place-items: center;
+}
+
+@media(max-width: 768px){
+  body{
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+figure{
+  width: 336px;
+  height: 403px;
+  position: absolute;
+  background-color: aliceblue;
+  padding: 19px 19px 85px 19px;
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+
+figure:active {
+  cursor: grabbing;
+  transform: scale(1.05) rotate(0deg);
+  z-index: 999;
+}
+.rotate-left {
+  transform: rotate(-25deg);
+}
+
+.rotate-right {
+  transform: rotate(20deg);
+}
+
+.rotate-slight {
+  transform: rotate(-8deg);
+}
+
+
+/* Floating Oval Button */
+.floating-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 100px; /* Makes it oval */
+
+  font-size: 1.2rem;
+  font-weight: 500;
+  background: linear-gradient(45deg, #ff4d6d, #ff85a1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+  z-index: 9999; /* Stay above photos */
+
+  animation: pulseGlow 2s infinite;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.floating-btn::before,
+.floating-btn::after {
+  content: "✨";
+  position: absolute;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Left Sparkle */
+.floating-btn::before {
+  top: 10%;
+  left: 15%;
+}
+
+/* Right Sparkle */
+.floating-btn::after {
+  bottom: 15%;
+  right: 18%;
+}
+
+/* Show Sparkles On Hover */
+.floating-btn:hover::before,
+.floating-btn:hover::after {
+  opacity: 1;
+  transform: translateY(-8px) scale(1.2);
+}
+
+/* Extra Floating Sparkles */
+.floating-btn span.sparkle {
+  position: absolute;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+figure img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover; 
+  display: block;
+}
+
+figcaption{
+  font-family: 'Caveat',cursive;
+  font-size: 25px;
+  color: #2c2c2c;
+  margin-top: 22px;
+  text-align: center;
+}
+h1,h2{
+  font-family: 'Caveat',cursive;
+}
+
+p{
+  font-family: 'Caveat',cursive;
+  font-size: 25px;
+}
+figure::before,
+figure::after{
+  content: "";
+  position: absolute;
+  height: 50px;
+  width: 180px;
+  background-color: rgba(102, 102, 102, 0.6);
+  transform: rotate(-40deg);
+}
+figure::before{
+  top: 3px;
+  left:-55px;
+}
+figure::after{
+  bottom: 3px;
+  right: -60px;
+}
+
+/* Hide initially */
+.hidden {
+  display: none;
+}
+
+/* Card Container */
+/* Card Container */
+.card-wrapper {
+  position: absolute;
+
+  width: 600px;
+  height: 520px;
+
+  /* Start position (off-screen bottom-right) */
+  bottom: -300px;
+  right: -400px;
+
+  perspective: 1200px;
+
+  z-index: 5000;
+  cursor: pointer;
+
+  transition: all 0.8s ease-out;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Card Sides */
+.card-side {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  backface-visibility: hidden;
+
+  transition: transform 0.8s ease;
+}
+
+/* Front Cover */
+.card-front {
+  background: linear-gradient(135deg, #ff6b81, #ffb3c6);
+  color: white;
+
+  transform-origin: left;
+  z-index: 2;
+}
+
+/* Inside Page */
+.card-inside {
+  background: #fff5f7;
+  background-image: url("../../Gallery\ project/roses.jpg");;
+  background-size: 100% 100%; 
+  background-position: center;
+  background-repeat: no-repeat;  
+  color: #333;
+
+  padding: 25px;
+  text-align: center;
+
+  transform: rotateY(180deg);
+  position: relative;
+}
+
+/* Open Animation */
+.card-wrapper.open .card-front {
+  transform: rotateY(-180deg);
+}
+
+.card-wrapper.open .card-inside {
+  transform: rotateY(0deg);
+}
+
+/* Soft shadow */
+.card-wrapper {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.card-wrapper.centered {
+  bottom: 50%;
+  right: 50%;
+
+  transform: translate(50%, 50%);
+}
+
+/* Yes Modal Background */
+.yes-modal {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+/* Modal Box */
+.yes-modal-content {
+  background: white;
+  background-image: url("../../Gallery\ project/Pink2.jpg");;
+  background-size: 100% 100%; 
+  background-position: center;
+  background-repeat: no-repeat;  
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  width: 85%;
+  max-width: 320px;
+  animation: pop 0.4s ease;
+}
+
+/* GIF */
+.celebration-gif {
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+/* Hide */
+.hidden {
+  display: none !important;
+}
+
+/* Pop animation */
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Hearts Container */
+/* Hearts Container (TOP LAYER) */
+#heartsContainer {
+  position: fixed;   /* important */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 999999; /* higher than modal */
+}
+
+
+/* Individual Heart */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  color: #ff4d6d;
+  animation: floatUp 4s linear forwards;
+  opacity: 0.8;
+}
+
+/* Floating Animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-350px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+
+
+/* Pulse Animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255,77,109,0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255,77,109,1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255,77,109,0.6);
+  }
+}

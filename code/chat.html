@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Figure</title>
+    <style>
+        .gallery {
+            width: 100%;
+            height: 500px;
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        figure {
+            width: 120px;
+            position: absolute;
+            cursor: grab;
+            text-align: center;
+            user-select: none; /* Prevent text selection while dragging */
+        }
+        img {
+            width: 100px;
+            height: auto;
+        }
+        figcaption {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <figure id="fig1" style="top: 50px; left: 50px;">
+            <img src="https://via.placeholder.com/100" alt="Draggable Image">
+            <figcaption>Drag me!</figcaption>
+        </figure>
+    </div>
+
+    <script>
+        document.querySelectorAll('figure').forEach(fig => {
+            fig.onmousedown = function(event) {
+                event.preventDefault(); // Prevents unwanted selection
+
+                let shiftX = event.clientX - fig.getBoundingClientRect().left;
+                let shiftY = event.clientY - fig.getBoundingClientRect().top;
+
+                function moveAt(pageX, pageY) {
+                    fig.style.left = pageX - shiftX + 'px';
+                    fig.style.top = pageY - shiftY + 'px';
+                }
+
+                function onMouseMove(event) {
+                    moveAt(event.pageX, event.pageY);
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+
+                fig.onmouseup = function() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    fig.onmouseup = null; // Remove event listener
+                };
+            };
+
+            fig.ondragstart = function() {
+                return false; // Prevents browser's default drag behavior
+            };
+        });
+
+        document.addEventListener('mouseup', function() {
+            document.querySelectorAll('figure').forEach(fig => {
+                fig.onmouseup && fig.onmouseup();
+            });
+        });
+    </script>
+</body>
+</html>

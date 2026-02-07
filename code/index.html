@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <div class="drag">
+    <figure class="rotate-left">
+      <img src="../Gallery project/IMG-20241203-WA0009.jpg">
+      <figcaption>Lil' Red Riding Hood</figcaption>
+    </figure>
+    
+    <figure class="rotate-right">
+      <img src="../Gallery project/IMG-20241213-WA0007.jpg">
+      <figcaption>My Zara model</figcaption>
+    </figure>
+    
+    <figure class="rotate-slight">
+      <img src="../Gallery project/IMG-20241217-WA0000.jpg">
+      <figcaption>My moon🌙</figcaption>
+    </figure>
+    
+    <figure class="rotate-left">
+      <img src="../Gallery project/IMG-20250131-WA0015.jpg">
+      <figcaption>🥵🥵</figcaption>
+    </figure>
+    
+    <figure class="rotate-right">
+      <img src="../Gallery project/IMG-20250209-WA0001.jpg">
+      <figcaption>My potato</figcaption>
+    </figure>
+
+    <figure class="rotate-slight">
+      <img src="../Gallery project/IMG_20241005_180833046.jpg">
+      <figcaption>My moon🌙</figcaption>
+    </figure>
+
+    <figure class="rotate-right">
+      <img src="../Gallery project/IMG_20250105_142800676.jpg">
+      <figcaption>💕💕</figcaption>
+    </figure>
+
+    <figure class="rotate-right">
+      <img src="../Gallery project/IMG_20250114_140425350.jpg">
+      <figcaption>Class🍷</figcaption>
+    </figure>
+    
+    <figure class="rotate-slight">
+      <img src="../Gallery project/IMG_20250219_180739580.jpg">
+      <figcaption>Pouty princess👑</figcaption>
+    </figure>
+
+    <figure>
+      <img src="../Gallery project/IMG-20250223-WA0012.jpg">
+      <figcaption>Starlet</figcaption>
+    </figure>
+
+    
+
+    <button class="btn btn-primary floating-btn" id="openCardBtn">
+      <span>💌 Open Card</span>
+    </button>
+    
+
+ <!-- Greeting Card -->
+<div id="greetingCard" class="card-wrapper hidden">
+
+  <!-- Front -->
+  <div class="card-side card-front">
+    <h2>💌 For You</h2>
+    <p>With Love</p>
+  </div>
+
+  <!-- Inside -->
+  <div class="card-side card-inside">
+
+    <h1>Will you be my valentine?💖</h1>
+
+    <p>
+      Oh gorgeous and Bootiful<br>
+      Pouty Princess<br><br>
+      🌸
+    </p>
+    <div class="btn-grp" id="yesBtn">
+      <button class="btn btn-success">
+        Yes
+      </button>
+      <button class="btn btn-secondary" id="noBtn">
+        No!
+      </button>
+      <button class="btn btn-danger" id="closeCard">
+        Close
+      </button>
+    </div>
+    
+
+  </div>
+
+</div>
+
+
+
+<!-- Success Modal -->
+<div id="yesModal" class="yes-modal hidden">
+
+  <div class="yes-modal-content">
+
+    <h2>💖 YAYYYYY!!! 💖</h2>
+
+    <img 
+      src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjRvNGY3bzE1dmoydGhjaGZrcWRpZjZkYXZxbWc1M2w0NmNmdTVueSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lqcTy7v26172ibzrXZ/giphy.gif"
+      alt="Celebration"
+      class="celebration-gif"
+    >
+
+    <p>
+      She said YES 😍🎉<br>
+      Best Valentine Ever 💌
+    </p>
+
+    <button class="btn btn-primary mt-3" id="closeYesModal">
+      Okay 💕
+    </button>
+
+  </div>
+
+</div>
+<!-- Floating Hearts -->
+<div id="heartsContainer"></div>
+
+<!-- Background Music -->
+<audio id="loveMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+ 
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="script.js"></script>
+</html>
