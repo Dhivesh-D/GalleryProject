@@ -233,7 +233,7 @@ yesBtn.addEventListener("click", () => {
     "She said YES 😍💖🎉\nBest Valentine ever 💌"
   );
 
-  sendYesEmail()
+  //sendYesEmail()
 
 });
 
